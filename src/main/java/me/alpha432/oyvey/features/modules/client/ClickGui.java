@@ -11,19 +11,19 @@ import org.lwjgl.glfw.GLFW;
 
 import java.awt.*;
 
-public class ClickGui
+public class water client
         extends Module {
-    private static ClickGui INSTANCE = new ClickGui();
+    private static water client INSTANCE = new water client();
     public Setting<String> prefix = str("Prefix", ".");
     public Setting<Color> color = color("Color", 0, 0, 255, 180);
-    public Setting<Color> topColor = color("TopColor", 0, 0, 150, 240);
+    public Setting<Color> topColor = color("TopColor", 0, 0, 10, 240);
     public Setting<Boolean> rainbow = bool("Rainbow", false);
     public Setting<Integer> rainbowHue = num("Delay", 240, 0, 600);
-    public Setting<Float> rainbowBrightness = num("Brightness", 150.0f, 1.0f, 255.0f);
+    public Setting<Float> rainbowBrightness = num("Brightness", 50.0f, 1.0f, 255.0f);
     public Setting<Float> rainbowSaturation = num("Saturation", 150.0f, 1.0f, 255.0f);
 
-    public ClickGui() {
-        super("ClickGui", "Opens the ClickGui", Module.Category.CLIENT);
+    public water client() {
+        super("water client", "Opens the water client", Module.Category.CLIENT);
         setBind(GLFW.GLFW_KEY_RIGHT_SHIFT);
         rainbowHue.setVisibility(v -> rainbow.getValue());
         rainbowBrightness.setVisibility(v -> rainbow.getValue());
@@ -31,7 +31,7 @@ public class ClickGui
         this.setInstance();
     }
 
-    public static ClickGui getInstance() {
+    public static water client getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new ClickGui();
         }
@@ -60,7 +60,7 @@ public class ClickGui
         if (nullCheck()) {
             return;
         }
-        mc.setScreen(OyVeyGui.getClickGui());
+        mc.setScreen(OyVeyGui.water client());
     }
 
     @Override
@@ -71,7 +71,7 @@ public class ClickGui
 
     @Override
     public void onTick() {
-        if (!(ClickGui.mc.screen instanceof OyVeyGui)) {
+        if (!(water client.mc.screen instanceof OyVeyGui)) {
             this.disable();
         }
     }
